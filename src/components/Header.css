@@ -1,0 +1,14 @@
+.Header {
+    padding: 5px;
+    margin: 5px;
+}
+
+#nav-icons-div {
+    float: right;
+}
+#nav-icons-div i {
+    margin-left: 10px;
+}
+h1 {
+    display: inline-block;
+}
