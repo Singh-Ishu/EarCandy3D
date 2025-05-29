@@ -1,7 +1,12 @@
 import "./App.css";
+import HeadphoneHero from "./components/HeadphoneHero";
 
 function App() {
-    return <></>;
+    return (
+        <>
+            <HeadphoneHero />
+        </>
+    );
 }
 
 export default App;
