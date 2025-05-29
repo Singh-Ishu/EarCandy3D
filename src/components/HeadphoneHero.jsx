@@ -4,30 +4,29 @@ import { useEffect } from "react";
 
 export default function HeadphoneHero() {
     useEffect(() => {
-        // Scene setup
+        // Initialize the scene
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x1a1a1a);
-
         // Camera setup
         const camera = new THREE.PerspectiveCamera(
-            75,
+            50,
             window.innerWidth / window.innerHeight,
             0.1,
-            1000
+            100
         );
-        camera.position.set(0, 1, 3);
+        camera.position.set(0, 0, 3);
 
         // Renderer setup
         const canvas = document.getElementById("hero-canvas");
         const renderer = new THREE.WebGLRenderer({
             canvas,
             antialias: true,
+            alpha: true, // Enable transparency
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
 
         // Lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
         scene.add(ambientLight);
 
         const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
@@ -37,18 +36,19 @@ export default function HeadphoneHero() {
         // GLTF Loader
         const loader = new GLTFLoader();
         loader.load(
-            "public/models/headphone_combined.glb",
+            "/models/headphone_combined.glb",
             (gltf) => {
                 const model = gltf.scene;
-                // Adjust model scale and position as needed
-                model.scale.set(1, 1, 1);
                 model.position.set(0, 0, 0);
                 scene.add(model);
 
-                // Optional: Center the model
+                // Center the model
                 const box = new THREE.Box3().setFromObject(model);
                 const center = box.getCenter(new THREE.Vector3());
                 model.position.sub(center);
+
+                camera.position.set(3, 1.5, -6);
+                camera.lookAt(new THREE.Vector3(0, 0, 0));
             },
             (xhr) => {
                 console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
@@ -65,7 +65,7 @@ export default function HeadphoneHero() {
         const animate = () => {
             requestAnimationFrame(animate);
             // Optional: Rotate the scene for a dynamic effect
-            scene.rotation.y += 0.005;
+            // scene.rotation.y += 0.005;
             renderer.render(scene, camera);
         };
         animate();
@@ -87,6 +87,7 @@ export default function HeadphoneHero() {
 
     return (
         <div className="HeadphoneHero">
+            <h1 className="hero-title">Sony XX-XYZ</h1>
             <div id="hero-container">
                 <canvas id="hero-canvas"></canvas>
             </div>
