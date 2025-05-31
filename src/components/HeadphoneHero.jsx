@@ -2,6 +2,9 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { useEffect } from "react";
 
+const canvasHeight = 600;
+const canvasWidth = 600;
+
 export default function HeadphoneHero() {
     useEffect(() => {
         // Initialize the scene
@@ -22,9 +25,17 @@ export default function HeadphoneHero() {
             antialias: true,
             alpha: true, // Enable transparency
         });
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        // renderer.setSize(window.innerWidth - 500, window.innerHeight);
+        renderer.setSize(
+            Math.min(window.innerWidth, canvasWidth),
+            Math.min(window.innerHeight, canvasHeight)
+        );
         renderer.setPixelRatio(window.devicePixelRatio);
-
+        //Setting camera aspect ratio to match the renderer size
+        camera.aspect =
+            Math.min(window.innerWidth, canvasWidth) /
+            Math.min(window.innerHeight, canvasHeight);
+        camera.updateProjectionMatrix();
         // Lighting
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
         scene.add(ambientLight);
@@ -39,6 +50,10 @@ export default function HeadphoneHero() {
             "/models/headphone_combined.glb",
             (gltf) => {
                 const model = gltf.scene;
+
+                // Scale the model to fit the scene
+                const scale = 1.4; // Adjust this value as needed
+                model.scale.set(scale, scale, scale);
                 model.position.set(0, 0, 0);
                 scene.add(model);
 
@@ -70,17 +85,8 @@ export default function HeadphoneHero() {
         };
         animate();
 
-        // Handle window resize
-        const handleResize = () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        };
-        window.addEventListener("resize", handleResize);
-
         // Cleanup on component unmount
         return () => {
-            window.removeEventListener("resize", handleResize);
             renderer.dispose();
         };
     }, []);
