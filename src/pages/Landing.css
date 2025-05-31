@@ -27,6 +27,7 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color, #333);
     text-align: center;
+    margin-top: 5rem;
     z-index: 1;
     position: relative;
 }

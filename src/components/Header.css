@@ -1,6 +1,17 @@
 .Header {
+    position: fixed;
+    top: 0;
+    left: 0;
     padding: 5px;
-    margin: 5px;
+    margin: 0; /* Avoid margin collapsing issues */
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0;
+    align-items: center;
+    min-width: 98vw;
+    background-color: #0c0c0c;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #nav-icons-div {
