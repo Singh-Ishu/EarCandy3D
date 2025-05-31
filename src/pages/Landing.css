@@ -17,7 +17,6 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
     pointer-events: none;
 }
 
@@ -28,7 +27,6 @@
     color: var(--text-color, #333);
     text-align: center;
     margin-top: 5rem;
-    z-index: 1;
     position: relative;
 }
 
@@ -40,7 +38,6 @@
     color: var(--text-color, #333);
     line-height: 1.6;
     text-align: justify;
-    z-index: 1;
     max-width: 300px;
     align-self: center;
 }
