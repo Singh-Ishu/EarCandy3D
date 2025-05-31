@@ -2,10 +2,14 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { useEffect } from "react";
 
+import "./Landing.css";
+
 const canvasHeight = 600;
 const canvasWidth = 600;
+const modelScale = 1.4;
+const headphoneModelName = "AudioMaster Pro 3000";
 
-export default function HeadphoneHero() {
+export default function Landing() {
     useEffect(() => {
         // Initialize the scene
         const scene = new THREE.Scene();
@@ -26,15 +30,11 @@ export default function HeadphoneHero() {
             alpha: true, // Enable transparency
         });
         // renderer.setSize(window.innerWidth - 500, window.innerHeight);
-        renderer.setSize(
-            Math.min(window.innerWidth, canvasWidth),
-            Math.min(window.innerHeight, canvasHeight)
-        );
+        renderer.setSize(canvasWidth, canvasHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
+
         //Setting camera aspect ratio to match the renderer size
-        camera.aspect =
-            Math.min(window.innerWidth, canvasWidth) /
-            Math.min(window.innerHeight, canvasHeight);
+        camera.aspect = canvasWidth / canvasHeight;
         camera.updateProjectionMatrix();
         // Lighting
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
@@ -44,16 +44,13 @@ export default function HeadphoneHero() {
         directionalLight.position.set(5, 5, 5);
         scene.add(directionalLight);
 
-        // GLTF Loader
         const loader = new GLTFLoader();
         loader.load(
             "/models/headphone_combined.glb",
             (gltf) => {
                 const model = gltf.scene;
 
-                // Scale the model to fit the scene
-                const scale = 1.4; // Adjust this value as needed
-                model.scale.set(scale, scale, scale);
+                model.scale.set(modelScale, modelScale, modelScale);
                 model.position.set(0, 0, 0);
                 scene.add(model);
 
@@ -79,8 +76,6 @@ export default function HeadphoneHero() {
         // Animation loop
         const animate = () => {
             requestAnimationFrame(animate);
-            // Optional: Rotate the scene for a dynamic effect
-            // scene.rotation.y += 0.005;
             renderer.render(scene, camera);
         };
         animate();
@@ -93,9 +88,31 @@ export default function HeadphoneHero() {
 
     return (
         <div className="HeadphoneHero">
-            <h1 className="hero-title">Sony XX-XYZ</h1>
-            <div id="hero-container">
-                <canvas id="hero-canvas"></canvas>
+            <h1 className="hero-title">{headphoneModelName}</h1>
+
+            <div className="hero-content-row">
+                <div className="hero-para-container" id="hero-para-container1">
+                    <p className="hero-para">
+                        Experience the ultimate sound quality with the{" "}
+                        <strong>{headphoneModelName}</strong> headphones.
+                        Designed for audiophiles, these headphones deliver
+                        crystal-clear audio and deep bass, making every note
+                        come alive.
+                    </p>
+                </div>
+
+                <div id="hero-container">
+                    <canvas id="hero-canvas"></canvas>
+                </div>
+
+                <div className="hero-para-container" id="hero-para-container2">
+                    <p className="hero-para">
+                        With precision engineering and ergonomic design, the{" "}
+                        <strong>{headphoneModelName}</strong> ensures comfort
+                        for extended listening sessions. Elevate your audio
+                        experience now.
+                    </p>
+                </div>
             </div>
         </div>
     );
