@@ -1,68 +1,76 @@
+.HeadphoneHero {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "title title title"
+        "left middle right";
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-title {
+    grid-area: title;
+    font-size: clamp(1rem, 1.5rem, 3rem);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color, #333);
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.hero-para-container {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    color: var(--text-color, #333);
+    line-height: 1.6;
+    text-align: justify;
+    z-index: 1;
+    max-width: 300px;
+    align-self: center;
+}
+
+#hero-para-container1 {
+    grid-area: left;
+    justify-self: center;
+}
+
+#hero-para-container2 {
+    grid-area: right;
+    justify-self: center;
+}
+
+/* Middle column left intentionally blank to make space for 3D model */
+
 @media (max-width: 900px) {
-    .hero-content-row {
+    .HeadphoneHero {
+        display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 20px;
     }
 
     .hero-para-container {
         max-width: 90%;
         text-align: center;
+        margin: 10px 0;
     }
-}
 
-.HeadphoneHero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--background-color, #f0f0f0);
-    padding: 20px;
-}
-
-.hero-title {
-    font-size: clamp(1.25rem, 1.5rem, 2rem);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--text-color, #333);
-    text-align: center;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.hero-content-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
-    max-width: 1200px;
-}
-
-.hero-para-container {
-    flex: 1;
-    max-width: 300px;
-}
-
-.hero-para {
-    font-size: 1rem;
-    color: var(--text-color, #333);
-    text-align: justify;
-    line-height: 1.6;
-
-    padding: 15px;
-
-    border: 1px solid white;
-}
-
-#hero-container {
-    width: 600px;
-    height: 600px;
-    flex-shrink: 0;
-}
-
-#hero-canvas {
-    width: 100%;
-    height: 100%;
-    display: block;
+    .hero-title {
+        margin-bottom: 20px;
+    }
 }

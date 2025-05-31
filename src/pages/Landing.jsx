@@ -1,12 +1,16 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 import "./Landing.css";
 
-const canvasHeight = 600;
-const canvasWidth = 600;
-const modelScale = 1.4;
+const canvasHeight = window.innerHeight;
+const canvasWidth = window.innerWidth;
+const modelScale = 1.2;
 const headphoneModelName = "AudioMaster Pro 3000";
 
 export default function Landing() {
@@ -60,7 +64,7 @@ export default function Landing() {
                 model.position.sub(center);
 
                 camera.position.set(3, 1.5, -6);
-                camera.lookAt(new THREE.Vector3(0, 0, 0));
+                camera.lookAt(new THREE.Vector3(0, 0.3, 0));
             },
             (xhr) => {
                 console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
@@ -90,29 +94,26 @@ export default function Landing() {
         <div className="HeadphoneHero">
             <h1 className="hero-title">{headphoneModelName}</h1>
 
-            <div className="hero-content-row">
-                <div className="hero-para-container" id="hero-para-container1">
-                    <p className="hero-para">
-                        Experience the ultimate sound quality with the{" "}
-                        <strong>{headphoneModelName}</strong> headphones.
-                        Designed for audiophiles, these headphones deliver
-                        crystal-clear audio and deep bass, making every note
-                        come alive.
-                    </p>
-                </div>
+            <div className="hero-para-container" id="hero-para-container1">
+                <p className="hero-para">
+                    Experience the ultimate sound quality with the{" "}
+                    <strong>{headphoneModelName}</strong> headphones. Designed
+                    for audiophiles, these headphones deliver crystal-clear
+                    audio and deep bass, making every note come alive.
+                </p>
+            </div>
 
-                <div id="hero-container">
-                    <canvas id="hero-canvas"></canvas>
-                </div>
+            <div id="hero-container">
+                <canvas id="hero-canvas"></canvas>
+            </div>
 
-                <div className="hero-para-container" id="hero-para-container2">
-                    <p className="hero-para">
-                        With precision engineering and ergonomic design, the{" "}
-                        <strong>{headphoneModelName}</strong> ensures comfort
-                        for extended listening sessions. Elevate your audio
-                        experience now.
-                    </p>
-                </div>
+            <div className="hero-para-container" id="hero-para-container2">
+                <p className="hero-para">
+                    With precision engineering and ergonomic design, the{" "}
+                    <strong>{headphoneModelName}</strong> ensures comfort for
+                    extended listening sessions. Elevate your audio experience
+                    now.
+                </p>
             </div>
         </div>
     );
