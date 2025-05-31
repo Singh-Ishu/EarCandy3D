@@ -1,10 +1,10 @@
 import "./App.css";
-import HeadphoneHero from "./components/HeadphoneHero";
+import Landing from "./pages/Landing";
 
 function App() {
     return (
         <>
-            <HeadphoneHero />
+            <Landing />
         </>
     );
 }
