@@ -9,7 +9,7 @@ import "./Header.css";
 export default function Header() {
     return (
         <div className="Header">
-            <h1>EarCandy.Co</h1>
+            <h1>EARCANDY.CO</h1>
             <div id="nav-icons-div">
                 <i className="material-icons">shopping_cart</i>
                 <i className="material-icons">person</i>
