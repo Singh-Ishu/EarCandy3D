@@ -1,8 +1,65 @@
 .VerticalProductCard {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
+    flex: 0 0 auto; /* important for horizontal scroll */
+    scroll-snap-align: start;
 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+
+    width: 280px;
+    min-height: 360px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.VerticalProductCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.VerticalProductCard img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.VerticalProductCard h3 {
+    margin: 12px 0 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.VerticalProductCard p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.price {
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 12px;
+}
+
+.add-to-cart {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #000;
 }
