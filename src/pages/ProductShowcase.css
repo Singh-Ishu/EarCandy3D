@@ -1,0 +1,15 @@
+.product-showcase {
+    display: flex;
+    flex-wrap: nowrap; /* prevent wrapping */
+    overflow-x: auto; /* enable horizontal scroll */
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 32px;
+    padding: 40px;
+    background: var(--background-color, #f9f9f9);
+    scrollbar-width: none; /* Firefox */
+}
+
+.product-showcase::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
