@@ -54,8 +54,16 @@ export default function Landing() {
             (gltf) => {
                 const model = gltf.scene;
 
+                //Setting up the model
                 model.scale.set(modelScale, modelScale, modelScale);
                 model.position.set(0, 0, 0);
+                let modelMesh;
+                model.traverse((child) => {
+                    if (child.isMesh) {
+                        modelMesh = child;
+                        child.material.depthWrite = true;
+                    }
+                });
                 scene.add(model);
 
                 // Center the model
@@ -68,23 +76,35 @@ export default function Landing() {
 
                 // Add scroll-triggered animations
                 gsap.to(model.scale, {
-                    x: 5, // Scale up to 1.5
-                    y: 5,
-                    z: 5,
+                    x: 15, // Scale up to 15
+                    y: 15,
+                    z: 15,
                     scrollTrigger: {
-                        trigger: "#hero-container",
+                        trigger: ".HeadphoneHero",
                         start: "top top",
-                        end: "1000px top",
+                        end: "600px top",
+                        ease: "none",
                         scrub: true,
                         pin: false,
                     },
                 });
                 gsap.to(model.rotation, {
-                    y: Math.PI * 2,
+                    y: Math.PI,
                     scrollTrigger: {
-                        trigger: "#hero-container",
+                        trigger: ".HeadphoneHero",
                         start: "top top",
-                        end: "1000px top",
+                        end: "600px top",
+                        ease: "none",
+                        scrub: true,
+                        pin: false,
+                    },
+                });
+                gsap.to(".HeadphoneHero", {
+                    opacity: 0,
+                    scrollTrigger: {
+                        trigger: ".HeadphoneHero",
+                        start: "top top",
+                        end: "600px top",
                         scrub: true,
                         pin: false,
                     },
