@@ -65,6 +65,30 @@ export default function Landing() {
 
                 camera.position.set(3, 1.5, -6);
                 camera.lookAt(new THREE.Vector3(0, 0.3, 0));
+
+                // Add scroll-triggered animations
+                gsap.to(model.scale, {
+                    x: 5, // Scale up to 1.5
+                    y: 5,
+                    z: 5,
+                    scrollTrigger: {
+                        trigger: "#hero-container",
+                        start: "top top",
+                        end: "1000px top",
+                        scrub: true,
+                        pin: false,
+                    },
+                });
+                gsap.to(model.rotation, {
+                    y: Math.PI * 2,
+                    scrollTrigger: {
+                        trigger: "#hero-container",
+                        start: "top top",
+                        end: "1000px top",
+                        scrub: true,
+                        pin: false,
+                    },
+                });
             },
             (xhr) => {
                 console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
