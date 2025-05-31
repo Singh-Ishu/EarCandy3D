@@ -13,3 +13,7 @@
 body {
     background-color: var(--background-color);
 }
+
+canvas {
+    width: 500px;
+}
