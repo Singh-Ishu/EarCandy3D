@@ -1,3 +1,15 @@
+@media (max-width: 900px) {
+    .hero-content-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-para-container {
+        max-width: 90%;
+        text-align: center;
+    }
+}
+
 .HeadphoneHero {
     display: flex;
     flex-direction: column;
