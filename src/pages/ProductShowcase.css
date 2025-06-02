@@ -1,9 +1,14 @@
 .product-showcase {
+    background-color: #f7f7f7;
     height: 100vh;
     width: 100%;
     position: relative;
 }
 
+.carousel-visualizer {
+    position: absolute;
+    top: 50%;
+}
 .carousel-track {
     display: flex;
     position: absolute;
@@ -14,7 +19,7 @@
     align-items: center;
     height: 80px;
     gap: 16px;
-    width: 200%;
+    width: 80vw;
     max-height: fit-content;
 
     animation: slide 20s linear infinite;

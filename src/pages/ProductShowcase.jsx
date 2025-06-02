@@ -1,5 +1,6 @@
 import "./ProductShowcase.css";
 import VerticalProductCard from "../components/VerticalProductCard";
+import CarouselVisualizer from "../components/CarouselVisualizer";
 
 export default function ProductShowcase() {
     const products = [
@@ -55,6 +56,9 @@ export default function ProductShowcase() {
 
     return (
         <div className="product-showcase">
+            <div className="visualizer-container">
+                <CarouselVisualizer />
+            </div>
             <div className="carousel-track">
                 {products.map((product, index) => (
                     <VerticalProductCard key={index} product={product} />
