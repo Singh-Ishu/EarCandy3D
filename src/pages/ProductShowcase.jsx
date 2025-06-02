@@ -60,7 +60,7 @@ export default function ProductShowcase() {
                 <CarouselVisualizer />
             </div>
             <div className="carousel-track">
-                {products.map((product, index) => (
+                {[...products, ...products].map((product, index) => (
                     <VerticalProductCard key={index} product={product} />
                 ))}
             </div>
