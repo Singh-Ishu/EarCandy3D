@@ -1,0 +1,24 @@
+.carousel-visualizer {
+    width: 100vw;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.carousel-visualizer-bar {
+    width: 10px;
+    height: 450px;
+}
+
+.bar-rect {
+    fill: black;
+    stroke: #ccc;
+    stroke-width: 1;
+    transition: all 0.2s ease;
+}
+
+.bar-rect:hover {
+    transform: scaleY(0.8);
+}
