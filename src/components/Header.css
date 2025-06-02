@@ -8,7 +8,7 @@
     justify-content: space-between;
     border-radius: 0;
     align-items: center;
-    min-width: 98vw;
+    min-width: 100vw;
     background-color: #0c0c0c;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -16,6 +16,7 @@
 
 #nav-icons-div {
     float: right;
+    margin-right: 25px;
 }
 #nav-icons-div i {
     margin-left: 10px;
