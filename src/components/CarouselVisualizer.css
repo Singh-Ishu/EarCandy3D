@@ -16,9 +16,5 @@
     fill: black;
     stroke: #ccc;
     stroke-width: 1;
-    transition: all 0.2s ease;
-}
-
-.bar-rect:hover {
-    transform: scaleY(0.8);
+    transition: all 0.1s ease-in-out;
 }
