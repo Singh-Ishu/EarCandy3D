@@ -51,25 +51,15 @@ export default function ProductShowcase() {
             description: "Alexa built-in, all-day battery.",
             price: 89.99,
         },
-        {
-            name: "CrystalSound Pro",
-            image: "/images/product3.png",
-            description: "True wireless experience.",
-            price: 199.99,
-        },
-        {
-            name: "EchoBuds 2",
-            image: "/images/product4.png",
-            description: "Alexa built-in, all-day battery.",
-            price: 89.99,
-        },
     ];
 
     return (
         <div className="product-showcase">
-            {products.map((product, index) => (
-                <VerticalProductCard key={index} product={product} />
-            ))}
+            <div className="carousel-track">
+                {products.map((product, index) => (
+                    <VerticalProductCard key={index} product={product} />
+                ))}
+            </div>
         </div>
     );
 }

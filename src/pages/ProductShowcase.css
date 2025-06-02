@@ -1,15 +1,33 @@
 .product-showcase {
-    display: flex;
-    flex-wrap: nowrap; /* prevent wrapping */
-    overflow-x: auto; /* enable horizontal scroll */
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    gap: 32px;
-    padding: 40px;
-    background: var(--background-color, #f9f9f9);
-    scrollbar-width: none; /* Firefox */
+    height: 100vh;
+    width: 100%;
+    position: relative;
 }
 
-.product-showcase::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+.carousel-track {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border-color: white;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    gap: 16px;
+    width: 200%;
+    max-height: fit-content;
+
+    animation: slide 20s linear infinite;
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes slide {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -100%;
+    }
 }
