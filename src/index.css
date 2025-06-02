@@ -3,6 +3,9 @@
     --background-color: (#f7f7f7, #2c2c2c);
     --text-color: (#000000, #ffffff);
 }
+*::-webkit-scrollbar {
+    display: none;
+}
 
 * {
     margin: 0;
