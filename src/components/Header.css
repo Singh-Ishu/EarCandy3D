@@ -9,7 +9,7 @@
     border-radius: 0;
     align-items: center;
     min-width: 100vw;
-    background-color: #0c0c0c;
+    background-color: var(--header-color);
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -21,7 +21,18 @@
 #nav-icons-div i {
     margin-left: 10px;
 }
-h1 {
+.Header h1,
+.Header span {
     display: inline-block;
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.Header span {
+    font-size: 1.3em;
+    color: var(--text-color);
+}
+
+.header-option {
+    margin-right: 5vw;
+    float: left;
 }
