@@ -1,0 +1,36 @@
+.Footer {
+    max-height: fit-content;
+}
+.footer-sections-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer-section {
+    padding: 2vw;
+    margin: 3vw;
+}
+.footer-section h3 {
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: 2em;
+}
+
+.footer-section a:link,
+.footer-section a:active,
+.footer-section a:visited {
+    color: var(--text-color);
+    text-decoration: none;
+}
+.footer-section a:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+.footer-section ul li {
+    margin: 0.5em 0;
+    list-style-type: none;
+    font-size: 1.2em;
+}
+
+.footer-bottom {
+    justify-self: center;
+    text-align: center;
+}
