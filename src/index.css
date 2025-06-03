@@ -3,16 +3,20 @@
 
     /* Default (Light) theme variables */
     --background-color: #f7f7f7;
-    --text-color: #000000;
+    --header-color: #ffffff;
+    --text-color: #1a1a1a;
     --accent-color: #009063;
+    --invert-background-color: #2c2c2c;
 }
 
 /* Dark theme variables */
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #2c2c2c;
+        --header-color: #000000;
         --text-color: #ffffff;
         --accent-color: #e3e0f3;
+        --invert-background-color: #f7f7f7;
     }
 }
 *::-webkit-scrollbar {

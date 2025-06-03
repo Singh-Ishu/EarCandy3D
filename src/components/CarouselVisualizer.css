@@ -13,8 +13,8 @@
 }
 
 .bar-rect {
-    fill: black;
-    stroke: #ccc;
+    fill: var(--background-color);
+    stroke: var(--text-color);
     stroke-width: 1;
     transition: all 0.1s ease-in-out;
 }
