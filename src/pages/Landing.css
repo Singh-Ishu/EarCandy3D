@@ -23,7 +23,7 @@
 .hero-title {
     grid-area: title;
     font-size: clamp(1rem, 1.5rem, 3rem);
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Candara", sans-serif;
     color: var(--text-color, #333);
     text-align: center;
     margin-top: 5rem;
@@ -31,14 +31,18 @@
 }
 
 .hero-para-container {
-    padding: 15px;
-    border-radius: 10px;
     border: 1px solid #ccc;
-    font-size: 1rem;
-    color: var(--text-color, #333);
-    line-height: 1.6;
-    text-align: justify;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
     max-width: 300px;
+
+    padding: 15px;
+    color: var(--text-color, #333);
+    font-size: 1rem;
+    font-family: "Century Gothic", sans-serif;
+    line-height: 1.6;
+
+    text-align: justify;
     align-self: center;
 }
 
