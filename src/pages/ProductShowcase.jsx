@@ -6,49 +6,25 @@ export default function ProductShowcase() {
     const products = [
         {
             name: "Audiomaster Alpha",
-            image: "../../public/template_img.webp",
+            image: "/template_img.webp",
             description: "High-quality sound with a sleek design.",
             price: 129.99,
         },
         {
             name: "BassBeast X",
-            image: "../../public/template_img.webp",
+            image: "/template_img.webp",
             description: "Deep bass and crystal clarity.",
             price: 159.99,
         },
         {
             name: "CrystalSound Pro",
-            image: "../../public/template_img.webp",
+            image: "/template_img.webp",
             description: "True wireless experience.",
             price: 199.99,
         },
         {
             name: "EchoBuds 2",
-            image: "../../public/template_img.webp",
-            description: "Alexa built-in, all-day battery.",
-            price: 89.99,
-        },
-        {
-            name: "Audiomaster Alpha",
-            image: "../../public/template_img.webp",
-            description: "High-quality sound with a sleek design.",
-            price: 129.99,
-        },
-        {
-            name: "BassBeast X",
-            image: "../../public/template_img.webp",
-            description: "Deep bass and crystal clarity.",
-            price: 159.99,
-        },
-        {
-            name: "CrystalSound Pro",
-            image: "../../public/template_img.webp",
-            description: "True wireless experience.",
-            price: 199.99,
-        },
-        {
-            name: "EchoBuds 2",
-            image: "../../public/template_img.webp",
+            image: "/template_img.webp",
             description: "Alexa built-in, all-day battery.",
             price: 89.99,
         },
