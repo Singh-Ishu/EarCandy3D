@@ -3,36 +3,54 @@
     top: 0;
     left: 0;
     padding: 5px;
-    margin: 0; /* Avoid margin collapsing issues */
+    margin: 0;
     display: flex;
     justify-content: space-between;
-    border-radius: 0;
     align-items: center;
     min-width: 100vw;
+    border-radius: 0;
     background-color: var(--header-color);
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#nav-icons-div {
-    float: right;
-    margin-right: 25px;
+.brand-and-options {
+    display: flex;
+    align-items: flex-end; /* Align children (brand and options) to the bottom */
+    gap: 20px;
 }
+
+#nav-icons-div {
+    margin-right: 25px;
+    display: flex;
+    align-items: center; /* Keep icons centered vertically */
+}
+
 #nav-icons-div i {
     margin-left: 10px;
 }
+
+.header-options {
+    display: flex;
+    align-items: flex-end; /* Ensure options are at the bottom */
+    gap: 20px;
+}
+
 .Header h1,
-.Header span {
+.header-option {
     display: inline-block;
     font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-.Header span {
+.header-option {
     font-size: 1.3em;
     color: var(--text-color);
+    border-radius: 0;
+    border-bottom: 4px solid transparent;
+    transition: border-bottom 0.2s ease, color 0.2s ease;
 }
 
-.header-option {
-    margin-right: 5vw;
-    float: left;
+.header-option:hover {
+    border-bottom: 4px solid var(--accent-color);
+    color: var(--accent-color);
 }
