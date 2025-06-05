@@ -19,6 +19,7 @@ export default function Header() {
                 </div>
             </div>
             <div id="nav-icons-div">
+                <i className="material-icons">search</i>
                 <i className="material-icons">shopping_cart</i>
                 <i className="material-icons">person</i>
             </div>
