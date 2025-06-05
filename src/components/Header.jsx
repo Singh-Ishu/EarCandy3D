@@ -23,6 +23,9 @@ export default function Header() {
                 <i className="material-icons">shopping_cart</i>
                 <i className="material-icons">person</i>
             </div>
+            <div className="hamburger-menu">
+                <i className="material-icons">menu</i>
+            </div>
         </div>
     );
 }
