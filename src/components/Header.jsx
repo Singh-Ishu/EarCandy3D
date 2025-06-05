@@ -12,8 +12,8 @@ export default function Header() {
                 <h1>EARCANDY.CO</h1>
                 <div className="header-options">
                     <span className="header-option">Headphones</span>
-                    <span className="header-option">Earphones</span>
                     <span className="header-option">Speakers</span>
+                    <span className="header-option">Soundbars</span>
                     <span className="header-option">Luxury Audio</span>
                     <span className="header-option">Accessories</span>
                 </div>
