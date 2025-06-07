@@ -3,6 +3,7 @@ The brand logo links to the home page.
 The search bar allows users to search for products.
 The profile icon links to the profile page
 The cart icon links to the cart page*/
+import HamburgerMenu from "./HamburgerMenu";
 import "./Header.css";
 
 export default function Header() {
@@ -23,8 +24,9 @@ export default function Header() {
                 <i className="material-icons">shopping_cart</i>
                 <i className="material-icons">person</i>
             </div>
-            <div className="hamburger-menu">
+            <div id="hamburger-menu">
                 <i className="material-icons">menu</i>
+                <HamburgerMenu />
             </div>
         </div>
     );

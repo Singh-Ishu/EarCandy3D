@@ -14,7 +14,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.hamburger-menu {
+#hamburger-menu {
     display: none;
 }
 .brand-and-options {
@@ -63,7 +63,7 @@
     #nav-icons-div {
         display: none;
     }
-    .hamburger-menu {
+    #hamburger-menu {
         display: block;
         margin-right: 15px;
         cursor: pointer;
