@@ -1,8 +1,10 @@
 .shop-sidebar {
     width: 280px;
+    height: fit-content;
     padding: 20px;
+    margin: 150px 20px 20px 5px;
+    border-radius: 0px 10px 10px 0;
     background-color: var(--header-color);
-    height: 100%;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     overflow-y: auto;
 }
@@ -68,4 +70,4 @@ input[type="radio"] {
 input[type="range"] {
     width: 100%;
     accent-color: var(--accent-color);
-} 
+}

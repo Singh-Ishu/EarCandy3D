@@ -1,10 +1,10 @@
-import './ShopSidebar.css';
+import "./ShopSidebar.css";
 
 const ShopSidebar = () => {
     return (
         <div className="shop-sidebar">
             <h2>Filters</h2>
-            
+
             <div className="filter-section">
                 <h3>Price Range</h3>
                 <div className="price-range">
@@ -14,6 +14,17 @@ const ShopSidebar = () => {
                         <input type="number" placeholder="Max" />
                     </div>
                 </div>
+            </div>
+
+            <div className="sort-container">
+                <h3>Sort by</h3>
+                <select className="sort-select">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Rating</option>
+                    <option value="newest">Newest</option>
+                </select>
             </div>
 
             <div className="filter-section">
@@ -64,4 +75,4 @@ const ShopSidebar = () => {
     );
 };
 
-export default ShopSidebar; 
+export default ShopSidebar;
