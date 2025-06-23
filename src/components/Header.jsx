@@ -3,6 +3,7 @@ The brand logo links to the home page.
 The search bar allows users to search for products.
 The profile icon links to the profile page
 The cart icon links to the cart page*/
+import { Link } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu";
 import "./Header.css";
 
@@ -10,19 +11,27 @@ export default function Header() {
     return (
         <div className="Header">
             <div className="brand-and-options">
-                <h1>EARCANDY.CO</h1>
+                <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <h1>EARCANDY.CO</h1>
+                </Link>
                 <div className="header-options">
-                    <span className="header-option">Headphones</span>
-                    <span className="header-option">Speakers</span>
-                    <span className="header-option">Soundbars</span>
-                    <span className="header-option">Luxury Audio</span>
-                    <span className="header-option">Accessories</span>
+                    <Link to="/shop?category=headphones" className="header-option">Headphones</Link>
+                    <Link to="/shop?category=speakers" className="header-option">Speakers</Link>
+                    <Link to="/shop?category=soundbars" className="header-option">Soundbars</Link>
+                    <Link to="/shop?category=luxury" className="header-option">Luxury Audio</Link>
+                    <Link to="/shop?category=accessories" className="header-option">Accessories</Link>
                 </div>
             </div>
             <div id="nav-icons-div">
-                <i className="material-icons">search</i>
-                <i className="material-icons">shopping_cart</i>
-                <i className="material-icons">person</i>
+                <Link to="/search" style={{ color: 'inherit' }}>
+                    <i className="material-icons">search</i>
+                </Link>
+                <Link to="/cart" style={{ color: 'inherit' }}>
+                    <i className="material-icons">shopping_cart</i>
+                </Link>
+                <Link to="/profile" style={{ color: 'inherit' }}>
+                    <i className="material-icons">person</i>
+                </Link>
             </div>
             <div id="hamburger-menu">
                 <i className="material-icons">menu</i>
