@@ -1,5 +1,5 @@
 .VerticalProductCard {
-    flex: 0 0 auto; /* important for horizontal scroll */
+    flex: 0 0 auto;
     scroll-snap-align: start;
 
     border: 1px solid #e0e0e0;
