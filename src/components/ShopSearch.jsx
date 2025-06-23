@@ -1,4 +1,4 @@
-import './ShopSearch.css';
+// import './ShopSearch.css';
 
 export default function ShopSearch() {
     return (
