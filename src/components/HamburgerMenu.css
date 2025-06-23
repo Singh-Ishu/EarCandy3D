@@ -2,3 +2,57 @@
     background-color: var(--background-color);
     color: var(--text-color);
 }
+
+.hamburger-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hamburger-menu-content {
+    background-color: var(--header-color);
+    color: var(--text-color);
+    width: 70vw;
+    max-width: 320px;
+    height: 100vh;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.hamburger-menu-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.hamburger-menu-content li {
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    width: 100%;
+    padding: 5px;
+}
+
+.hamburger-menu-content a {
+    color: var(--text-color);
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    padding: 1rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.hamburger-menu-content a:hover {
+    background: var(--accent-color);
+    color: #fff;
+}

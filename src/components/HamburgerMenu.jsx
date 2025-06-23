@@ -1,16 +1,25 @@
+import { Link } from "react-router-dom";
 import "./HamburgerMenu.css";
 
 export default function HamburgerMenu() {
     return (
-        <div className="hamburger-menu">
-            <ul>
-                <li>Home</li>
-                <li>Headphones</li>
-                <li>Speakers</li>
-                <li>Soundbars</li>
-                <li>Luxury Audio</li>
-                <li>Accessories</li>
-            </ul>
+        <div className="hamburger-menu-overlay">
+            <nav className="hamburger-menu-content">
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/shop">Shop</Link>
+                    </li>
+                    <li>
+                        <Link to="/profile">Profile</Link>
+                    </li>
+                    <li>
+                        <Link to="/cart">Cart</Link>
+                    </li>
+                </ul>
+            </nav>
         </div>
     );
 }
