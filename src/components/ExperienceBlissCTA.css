@@ -23,7 +23,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 0;
+    width: 50%;
     background-color: #000;
     z-index: 2;
     border: 2px solid white;

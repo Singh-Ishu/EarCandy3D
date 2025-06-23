@@ -14,8 +14,13 @@ const ExperienceBlissCTA = () => {
     const shopPageRef = useRef(null);
 
     const handleHover = () => {
-        gsap.to([leftRef.current, rightRef.current], {
-            width: "50%",
+        gsap.to(leftRef.current, {
+            x: "-100%",
+            duration: 0.6,
+            ease: "power2.out",
+        });
+        gsap.to(rightRef.current, {
+            x: "100%",
             duration: 0.6,
             ease: "power2.out",
         });
@@ -32,8 +37,13 @@ const ExperienceBlissCTA = () => {
     };
 
     const handleHoverExit = () => {
-        gsap.to([leftRef.current, rightRef.current], {
-            width: 0,
+        gsap.to(leftRef.current, {
+            x: 0,
+            duration: 0.6,
+            ease: "power2.in",
+        });
+        gsap.to(rightRef.current, {
+            x: 0,
             duration: 0.6,
             ease: "power2.in",
         });
@@ -59,7 +69,8 @@ const ExperienceBlissCTA = () => {
     };
 
     useEffect(() => {
-        gsap.set([leftRef.current, rightRef.current], { width: 0 });
+        gsap.set(leftRef.current, { x: 0 });
+        gsap.set(rightRef.current, { x: 0 });
         gsap.set(glassRef.current, { opacity: 0 });
         gsap.set(shopPageRef.current, { opacity: 0 });
     }, []);
