@@ -6,13 +6,9 @@ export default function HamburgerMenu({ onClose }) {
         onClose?.();
     };
 
-    const handleMenuClick = (e) => {
-        e.stopPropagation();
-    };
-
     return (
-        <div className="hamburger-menu-overlay" onClick={handleMenuClick}>
-            <nav className="hamburger-menu-content" onClick={handleMenuClick}>
+        <div className="hamburger-menu-overlay">
+            <nav className="hamburger-menu-content">
                 <ul>
                     <li>
                         <Link to="/" onClick={handleLinkClick}>Home</Link>

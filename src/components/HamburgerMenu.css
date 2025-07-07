@@ -13,18 +13,16 @@
     position: fixed;
     top: 80px;
     right: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: flex-end;
+    width: min(70vw, 320px);
+    height: calc(100vh - 80px);
     z-index: 10000;
 }
 
 .hamburger-menu-content {
     background-color: var(--header-color);
     color: var(--text-color);
-    width: min(70vw, 320px);
-    height: calc(100vh - 80px);
+    width: 100%;
+    height: 100%;
     box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
     padding: 2rem 1.5rem;
     display: flex;
@@ -88,8 +86,11 @@
 }
 
 @media (max-width: 480px) {
+    .hamburger-menu-overlay {
+        width: min(85vw, 280px);
+    }
+    
     .hamburger-menu-content {
-        width: 85vw;
         padding: 1.5rem 1rem;
     }
     
