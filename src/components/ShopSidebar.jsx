@@ -78,6 +78,22 @@ const ShopSidebar = ({ onFiltersChange }) => {
         updateFilters({ ...filters, sortBy });
     };
 
+    const clearAllFilters = () => {
+        const clearedFilters = {
+            priceRange: [0, 1000],
+            categories: [],
+            series: [],
+            rating: "",
+            sortBy: "featured"
+        };
+        setFilters(clearedFilters);
+        onFiltersChange?.(clearedFilters);
+        
+        // Clear URL params
+        const params = new URLSearchParams();
+        setSearchParams(params);
+    };
+
     return (
         <div className="shop-sidebar">
             <h2>Filters</h2>
@@ -195,6 +211,10 @@ const ShopSidebar = ({ onFiltersChange }) => {
                     ))}
                 </div>
             </div>
+            
+            <button className="clear-filters-btn" onClick={clearAllFilters}>
+                Clear All Filters
+            </button>
         </div>
     );
 };

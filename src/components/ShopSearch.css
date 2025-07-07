@@ -72,6 +72,7 @@
 @media (max-width: 768px) {
     .search-container {
         max-width: 90%;
+        margin: 0 auto;
     }
     
     .search-input {
@@ -83,5 +84,31 @@
         padding: 0.6rem;
         min-width: 40px;
         height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-search {
+        margin: 1.5rem 0;
+    }
+    
+    .search-container {
+        max-width: 95%;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .search-input {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.7rem;
+    }
+    
+    .search-button {
+        padding: 0.5rem;
+        min-width: 36px;
+        height: 36px;
+    }
+    
+    .search-button i {
+        font-size: 1rem;
     }
 }
