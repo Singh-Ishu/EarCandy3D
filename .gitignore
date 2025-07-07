@@ -26,3 +26,4 @@ dist-ssr
 #Custom folders
 #Folder for storing the files used to create the final fbx models
 src/assets/modelwips/
+.env
