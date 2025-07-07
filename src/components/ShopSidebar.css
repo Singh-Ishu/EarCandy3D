@@ -5,30 +5,102 @@
     margin: 150px 20px 20px 5px;
     border-radius: 0px 10px 10px 0;
     background-color: var(--header-color);
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
     overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .shop-sidebar h2 {
     color: var(--text-color);
     margin-bottom: 20px;
     font-size: 1.5rem;
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    font-weight: 600;
 }
 
 .filter-section {
     margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filter-section:last-child {
+    border-bottom: none;
 }
 
 .filter-section h3 {
     color: var(--text-color);
     font-size: 1.1rem;
     margin-bottom: 12px;
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    font-weight: 500;
 }
 
 .price-range {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+}
+
+.price-slider-container {
+    position: relative;
+    height: 20px;
+    margin: 10px 0;
+}
+
+.price-slider {
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: transparent;
+    outline: none;
+    -webkit-appearance: none;
+    pointer-events: none;
+}
+
+.price-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    cursor: pointer;
+    pointer-events: all;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.price-slider::-moz-range-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    cursor: pointer;
+    pointer-events: all;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slider-track {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    border-radius: 3px;
+}
+
+.slider-range {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 6px;
+    background: var(--accent-color);
+    border-radius: 3px;
+    transition: all 0.1s ease;
 }
 
 .price-inputs {
@@ -38,14 +110,41 @@
 
 .price-inputs input {
     width: 100%;
-    padding: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
     background-color: var(--background-color);
     color: var(--text-color);
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.price-inputs input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.sort-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
 }
 
 .category-filters,
-.brand-filters,
+.series-filters,
 .rating-filters {
     display: flex;
     flex-direction: column;
@@ -53,21 +152,36 @@
 }
 
 .category-filters label,
-.brand-filters label,
+.series-filters label,
 .rating-filters label {
     display: flex;
     align-items: center;
     gap: 8px;
     color: var(--text-color);
     cursor: pointer;
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    font-size: 0.9rem;
+    padding: 4px 0;
+    transition: color 0.3s ease;
+}
+
+.category-filters label:hover,
+.series-filters label:hover,
+.rating-filters label:hover {
+    color: var(--accent-color);
 }
 
 input[type="checkbox"],
 input[type="radio"] {
     accent-color: var(--accent-color);
+    width: 16px;
+    height: 16px;
 }
 
-input[type="range"] {
-    width: 100%;
-    accent-color: var(--accent-color);
+@media (max-width: 768px) {
+    .shop-sidebar {
+        width: 100%;
+        margin: 120px 0 0 0;
+        border-radius: 0;
+    }
 }

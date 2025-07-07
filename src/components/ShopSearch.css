@@ -8,45 +8,80 @@
 .search-container {
     display: flex;
     align-items: center;
-    background: #23272f;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    background: var(--header-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 0.25rem 0.5rem;
-    max-width: 400px;
-    width: 100vw;
+    max-width: 500px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.search-container:focus-within {
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 16px rgba(0, 144, 99, 0.2);
 }
 
 .search-input {
     background: transparent;
     border: none;
-    color: #f1f1f1;
+    color: var(--text-color);
     font-size: 1rem;
+    font-family: "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
     padding: 0.75rem 1rem;
     outline: none;
     flex: 1;
 }
 
 .search-input::placeholder {
-    color: #888;
-    opacity: 1;
+    color: var(--text-color);
+    opacity: 0.6;
 }
 
 .search-button {
-    background: #3a3f4b;
+    background: var(--accent-color);
     border: none;
-    border-radius: 6px;
-    padding: 0.5rem;
+    border-radius: 8px;
+    padding: 0.75rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.3s ease;
+    min-width: 44px;
+    height: 44px;
 }
 
 .search-button:hover,
 .search-button:focus {
-    background: #50576a;
+    background: var(--text-color);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.search-button svg {
-    color: #f1f1f1;
+.search-button:active {
+    transform: translateY(0);
+}
+
+.search-button i {
+    color: white;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        max-width: 90%;
+    }
+    
+    .search-input {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .search-button {
+        padding: 0.6rem;
+        min-width: 40px;
+        height: 40px;
+    }
 }
