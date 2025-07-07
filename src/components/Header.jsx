@@ -18,67 +18,64 @@ export default function Header() {
     const closeMenu = () => {
         setMenuOpen(false);
     };
+
     return (
         <>
-        <div className="Header">
-            <div className="brand-and-options">
-                <Link to="/" onClick={closeMenu}>
-                    <h1>EARCANDY.CO</h1>
-                </Link>
-                <div className="header-options">
-                    <Link
-                        to="/shop?category=headphones"
-                        className="header-option"
-                        onClick={closeMenu}
-                    >
-                        Headphones
+            <div className="Header">
+                <div className="brand-and-options">
+                    <Link to="/">
+                        <h1>EARCANDY.CO</h1>
                     </Link>
-                    <Link
-                        to="/shop?category=speakers"
-                        className="header-option"
-                        onClick={closeMenu}
-                    >
-                        Speakers
+                    <div className="header-options">
+                        <Link
+                            to="/shop?category=headphones"
+                            className="header-option"
+                        >
+                            Headphones
+                        </Link>
+                        <Link
+                            to="/shop?category=speakers"
+                            className="header-option"
+                        >
+                            Speakers
+                        </Link>
+                        <Link
+                            to="/shop?category=soundbars"
+                            className="header-option"
+                        >
+                            Soundbars
+                        </Link>
+                        <Link to="/shop?category=luxury" className="header-option">
+                            Luxury Audio
+                        </Link>
+                        <Link
+                            to="/shop?category=accessories"
+                            className="header-option"
+                        >
+                            Accessories
+                        </Link>
+                    </div>
+                </div>
+                <div id="nav-icons-div">
+                    <Link to="/search" style={{ color: "inherit" }}>
+                        <i className="material-icons">search</i>
                     </Link>
-                    <Link
-                        to="/shop?category=soundbars"
-                        className="header-option"
-                        onClick={closeMenu}
-                    >
-                        Soundbars
+                    <Link to="/cart" style={{ color: "inherit" }}>
+                        <i className="material-icons">shopping_cart</i>
                     </Link>
-                    <Link to="/shop?category=luxury" className="header-option" onClick={closeMenu}>
-                        Luxury Audio
-                    </Link>
-                    <Link
-                        to="/shop?category=accessories"
-                        className="header-option"
-                        onClick={closeMenu}
-                    >
-                        Accessories
+                    <Link to="/profile" style={{ color: "inherit" }}>
+                        <i className="material-icons">person</i>
                     </Link>
                 </div>
+                <div id="hamburger-menu" onClick={toggleMenu}>
+                    <i className="material-icons">{menuOpen ? 'close' : 'menu'}</i>
+                </div>
             </div>
-            <div id="nav-icons-div">
-                <Link to="/search" style={{ color: "inherit" }} onClick={closeMenu}>
-                    <i className="material-icons">search</i>
-                </Link>
-                <Link to="/cart" style={{ color: "inherit" }} onClick={closeMenu}>
-                    <i className="material-icons">shopping_cart</i>
-                </Link>
-                <Link to="/profile" style={{ color: "inherit" }} onClick={closeMenu}>
-                    <i className="material-icons">person</i>
-                </Link>
-            </div>
-            <div id="hamburger-menu" onClick={toggleMenu}>
-                <i className="material-icons">{menuOpen ? 'close' : 'menu'}</i>
-            </div>
-        </div>
-        {menuOpen && (
-            <div className="hamburger-menu-backdrop" onClick={closeMenu}>
-                <HamburgerMenu onClose={closeMenu} />
-            </div>
-        )}
+            {menuOpen && (
+                <div className="hamburger-menu-backdrop" onClick={closeMenu}>
+                    <HamburgerMenu onClose={closeMenu} />
+                </div>
+            )}
         </>
     );
 }
