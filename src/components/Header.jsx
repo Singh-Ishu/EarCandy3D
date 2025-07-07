@@ -11,58 +11,74 @@ import "./Header.css";
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const toggleMenu = () => {
+        setMenuOpen(!menuOpen);
+    };
+
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
     return (
+        <>
         <div className="Header">
             <div className="brand-and-options">
-                <Link to="/">
+                <Link to="/" onClick={closeMenu}>
                     <h1>EARCANDY.CO</h1>
                 </Link>
                 <div className="header-options">
                     <Link
                         to="/shop?category=headphones"
                         className="header-option"
+                        onClick={closeMenu}
                     >
                         Headphones
                     </Link>
                     <Link
                         to="/shop?category=speakers"
                         className="header-option"
+                        onClick={closeMenu}
                     >
                         Speakers
                     </Link>
                     <Link
                         to="/shop?category=soundbars"
                         className="header-option"
+                        onClick={closeMenu}
                     >
                         Soundbars
                     </Link>
-                    <Link to="/shop?category=luxury" className="header-option">
+                    <Link to="/shop?category=luxury" className="header-option" onClick={closeMenu}>
                         Luxury Audio
                     </Link>
                     <Link
                         to="/shop?category=accessories"
                         className="header-option"
+                        onClick={closeMenu}
                     >
                         Accessories
                     </Link>
                 </div>
             </div>
             <div id="nav-icons-div">
-                <Link to="/search" style={{ color: "inherit" }}>
+                <Link to="/search" style={{ color: "inherit" }} onClick={closeMenu}>
                     <i className="material-icons">search</i>
                 </Link>
-                <Link to="/cart" style={{ color: "inherit" }}>
+                <Link to="/cart" style={{ color: "inherit" }} onClick={closeMenu}>
                     <i className="material-icons">shopping_cart</i>
                 </Link>
-                <Link to="/profile" style={{ color: "inherit" }}>
+                <Link to="/profile" style={{ color: "inherit" }} onClick={closeMenu}>
                     <i className="material-icons">person</i>
                 </Link>
             </div>
-            <div id="hamburger-menu">
-                <i className="material-icons">menu</i>
-
-                <HamburgerMenu />
+            <div id="hamburger-menu" onClick={toggleMenu}>
+                <i className="material-icons">{menuOpen ? 'close' : 'menu'}</i>
             </div>
         </div>
+        {menuOpen && (
+            <div className="hamburger-menu-backdrop" onClick={closeMenu}>
+                <HamburgerMenu onClose={closeMenu} />
+            </div>
+        )}
+        </>
     );
 }

@@ -32,6 +32,7 @@
 
 body {
     background-color: var(--background-color);
+    overflow-x: hidden;
 }
 
 .HeadphoneHero {

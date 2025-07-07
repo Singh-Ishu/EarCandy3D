@@ -30,13 +30,20 @@ export default function ProductShowcase() {
         },
     ];
 
+    // Create enough duplicates to ensure seamless infinite scroll
+    const duplicatedProducts = [
+        ...products,
+        ...products,
+        ...products,
+        ...products
+    ];
     return (
         <div className="product-showcase">
             <div className="visualizer-container">
                 <CarouselVisualizer />
             </div>
             <div className="carousel-track">
-                {[...products, ...products].map((product, index) => (
+                {duplicatedProducts.map((product, index) => (
                     <VerticalProductCard key={index} product={product} />
                 ))}
             </div>

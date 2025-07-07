@@ -1,22 +1,48 @@
 import { Link } from "react-router-dom";
 import "./HamburgerMenu.css";
 
-export default function HamburgerMenu() {
+export default function HamburgerMenu({ onClose }) {
+    const handleLinkClick = () => {
+        onClose?.();
+    };
+
+    const handleMenuClick = (e) => {
+        e.stopPropagation();
+    };
+
     return (
-        <div className="hamburger-menu-overlay">
-            <nav className="hamburger-menu-content">
+        <div className="hamburger-menu-overlay" onClick={handleMenuClick}>
+            <nav className="hamburger-menu-content" onClick={handleMenuClick}>
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/" onClick={handleLinkClick}>Home</Link>
                     </li>
                     <li>
-                        <Link to="/shop">Shop</Link>
+                        <Link to="/shop" onClick={handleLinkClick}>Shop</Link>
                     </li>
                     <li>
-                        <Link to="/profile">Profile</Link>
+                        <Link to="/shop?category=headphones" onClick={handleLinkClick}>Headphones</Link>
                     </li>
                     <li>
-                        <Link to="/cart">Cart</Link>
+                        <Link to="/shop?category=speakers" onClick={handleLinkClick}>Speakers</Link>
+                    </li>
+                    <li>
+                        <Link to="/shop?category=soundbars" onClick={handleLinkClick}>Soundbars</Link>
+                    </li>
+                    <li>
+                        <Link to="/shop?category=luxury" onClick={handleLinkClick}>Luxury Audio</Link>
+                    </li>
+                    <li>
+                        <Link to="/shop?category=accessories" onClick={handleLinkClick}>Accessories</Link>
+                    </li>
+                    <li>
+                        <Link to="/profile" onClick={handleLinkClick}>Profile</Link>
+                    </li>
+                    <li>
+                        <Link to="/cart" onClick={handleLinkClick}>Cart</Link>
+                    </li>
+                    <li>
+                        <Link to="/search" onClick={handleLinkClick}>Search</Link>
                     </li>
                 </ul>
             </nav>
