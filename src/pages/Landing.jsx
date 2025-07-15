@@ -136,7 +136,7 @@ export default function Landing() {
 
     return (
         <div className="HeadphoneHero">
-            <h1 className="hero-title">{headphoneModelName}</h1>
+            {/* <h1 className="hero-title">{headphoneModelName}</h1> */}
 
             <div className="hero-para-container" id="hero-para-container1">
                 <p className="hero-para">
