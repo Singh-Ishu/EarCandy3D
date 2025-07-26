@@ -6,14 +6,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-import "./Landing.css";
+import "./LandingMinimal.css";
 
 const canvasHeight = window.innerHeight;
 const canvasWidth = window.innerWidth;
 const modelScale = 1.2;
 const headphoneModelName = "AudioMaster Pro 3000";
 
-export default function Landing() {
+export default function LandingMinimal() {
     useEffect(() => {
         // Initialize the scene
         const scene = new THREE.Scene();
