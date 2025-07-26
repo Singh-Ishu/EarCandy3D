@@ -17,8 +17,9 @@ export default function SplitScreenLanding() {
         if (!isDragging || !containerRef.current) return;
 
         const containerRect = containerRef.current.getBoundingClientRect();
-        const newPosition = ((e.clientX - containerRect.left) / containerRect.width) * 100;
-        
+        const newPosition =
+            ((e.clientX - containerRect.left) / containerRect.width) * 100;
+
         // Constrain between 10% and 90%
         const constrainedPosition = Math.max(10, Math.min(90, newPosition));
         setSplitPosition(constrainedPosition);
@@ -39,8 +40,9 @@ export default function SplitScreenLanding() {
 
         const touch = e.touches[0];
         const containerRect = containerRef.current.getBoundingClientRect();
-        const newPosition = ((touch.clientX - containerRect.left) / containerRect.width) * 100;
-        
+        const newPosition =
+            ((touch.clientX - containerRect.left) / containerRect.width) * 100;
+
         const constrainedPosition = Math.max(10, Math.min(90, newPosition));
         setSplitPosition(constrainedPosition);
     };
@@ -67,32 +69,26 @@ export default function SplitScreenLanding() {
 
     return (
         <div className="split-screen-container" ref={containerRef}>
-            <div 
+            <div
                 className="split-panel left-panel"
                 style={{ width: `${splitPosition}%` }}
             >
                 <div className="panel-content">
                     <LandingMinimal />
                 </div>
-                <div className="panel-label">
-                    <span>Minimal</span>
-                </div>
             </div>
-            
-            <div 
+
+            <div
                 className="split-panel right-panel"
                 style={{ width: `${100 - splitPosition}%` }}
             >
                 <div className="panel-content">
                     <LandingBold />
                 </div>
-                <div className="panel-label">
-                    <span>Bold</span>
-                </div>
             </div>
 
-            <div 
-                className={`split-divider ${isDragging ? 'dragging' : ''}`}
+            <div
+                className={`split-divider ${isDragging ? "dragging" : ""}`}
                 style={{ left: `${splitPosition}%` }}
                 onMouseDown={handleMouseDown}
                 onTouchStart={handleTouchStart}
