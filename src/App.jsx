@@ -2,8 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import ExperienceBlissCTA from "./components/ExperienceBlissCTA";
 import Footer from "./components/Footer";
-import LandingMinimal from "./pages/LandingMinimal";
-import LandingBold from "./pages/LandingBold";
+import SplitScreenLanding from "./components/SplitScreenLanding";
 import ProductShowcase from "./pages/ProductShowcase";
 import ShopPage from "./pages/ShopPage";
 
@@ -15,8 +14,7 @@ function App() {
                     path="/"
                     element={
                         <>
-                            <LandingMinimal />
-                            <LandingBold />
+                            <SplitScreenLanding />
                             <ProductShowcase />
                             <ExperienceBlissCTA />
                         </>

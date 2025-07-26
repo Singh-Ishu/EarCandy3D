@@ -34,11 +34,11 @@ export default function LandingMinimal() {
             alpha: true, // Enable transparency
         });
         // renderer.setSize(window.innerWidth - 500, window.innerHeight);
-        renderer.setSize(canvasWidth, canvasHeight);
+        renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
 
         //Setting camera aspect ratio to match the renderer size
-        camera.aspect = canvasWidth / canvasHeight;
+        camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         // Lighting
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
