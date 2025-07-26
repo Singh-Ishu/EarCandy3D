@@ -11,7 +11,6 @@
     position: relative;
     height: 100vh;
     overflow: hidden;
-    transition: width 0.1s ease-out;
 }
 
 .split-panel.left-panel {
