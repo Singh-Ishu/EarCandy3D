@@ -1,9 +1,7 @@
 .HeadphoneHero {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     display: flex;
@@ -38,10 +36,10 @@
 }
 
 .canvas-container {
-    width: 100vw;
+    width: 200vw;
     height: 100vh;
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
+    left: -50vw;
     z-index: 5;
 }
