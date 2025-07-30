@@ -1,0 +1,17 @@
+.funky-content-panel {
+    height: 100%;
+    width: 100%;
+    /* Your desired background for the funky side */
+    background-color: yellow; /* As per your image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensures text is clipped if panel is too small */
+}
+
+.funky-content-panel h1 {
+    font-size: 5rem; /* Match minimal side */
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    white-space: nowrap; /* Prevents text from wrapping */
+}

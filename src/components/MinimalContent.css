@@ -1,0 +1,20 @@
+.minimal-content-panel {
+    height: 100%;
+    width: 100%;
+    /* Your desired background for the minimal side */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensures text is clipped if panel is too small */
+}
+
+.minimal-content-panel h1 {
+    font-size: 5rem; /* Adjust font size as needed */
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.1em;
+    user-select: none;
+    opacity: 0.9;
+    white-space: nowrap; /* Prevents text from wrapping */
+}

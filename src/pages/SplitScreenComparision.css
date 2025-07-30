@@ -1,0 +1,200 @@
+:root {
+    --accent-color: #009063; /* Your brand/accent color */
+}
+
+/* Overall container for the split screen */
+.split-screen-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden; /* Prevents scrollbars if content overflows */
+    cursor: default; /* Default cursor for the background */
+}
+
+/* --- Layer 1: 3D Models --- */
+/* Container for both headphone Canvas wrappers, acts as a full-screen base */
+.model-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Lowest visual layer to appear behind text/backgrounds */
+}
+
+/* Wrapper for each individual Canvas. This is what gets clipped. */
+.model-canvas-wrapper {
+    position: absolute; /* Allows overlaying and precise positioning */
+    top: 0;
+    height: 100%; /* Take full height of .model-layer */
+    overflow: hidden; /* CRITICAL: This clips the part of the Canvas that goes outside this wrapper */
+}
+
+/* Ensure the Canvas element itself always renders at the full viewport size */
+/* This is crucial for the "overlay" effect where the model appears static */
+.model-canvas-wrapper canvas {
+    position: absolute;
+    top: 0;
+    left: 0; /* Align the Canvas to the viewport's left edge */
+    width: 100vw !important; /* Forces Canvas to render across the entire viewport width */
+    height: 100vh !important; /* Forces Canvas to render across the entire viewport height */
+    display: block; /* Removes default inline-block spacing */
+}
+
+/* The minimal headphone always spans the full width underneath */
+.minimal-headphone-wrapper {
+    width: 100%;
+    left: 0;
+}
+
+/* The funky headphone wrapper's width and left are controlled by JS */
+.funky-headphone-wrapper {
+    /* Styles will be applied via inline style from React */
+}
+
+/* --- Layer 2: Content (Backgrounds and Text) --- */
+/* Container for both content panels (minimal and funky) */
+.content-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Uses flexbox to lay out the content panels side-by-side */
+    z-index: 2; /* Above the models, below the divider */
+    pointer-events: none; /* Allows mouse events to pass through to the slider divider */
+}
+
+/* Individual content panel (minimal or funky) */
+.content-panel {
+    height: 100%;
+    position: relative; /* Allows content like h1 to be positioned relatively within */
+    overflow: hidden; /* Clips the background and text as the panel's width changes */
+    pointer-events: auto; /* Re-enable pointer events for specific content (e.g., text selection) */
+}
+
+.left-content-panel {
+    /* Width is set via inline style in JS */
+}
+
+.right-content-panel {
+    /* Width is set via inline style in JS, flex-grow can also be used as a fallback/helper */
+    flex-grow: 1; /* Takes up remaining space if no explicit width */
+}
+
+/* --- Layer 3: The Slider Divider --- */
+.split-divider {
+    position: absolute;
+    top: 0;
+    width: 6px; /* Default width of the divider line */
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--accent-color) 20%,
+        var(--accent-color) 80%,
+        transparent 100%
+    );
+    cursor: col-resize; /* Cursor indicates horizontal resizing */
+    z-index: 1000; /* Highest z-index to be always on top */
+    transform: translateX(
+        -50%
+    ); /* Centers the 6px line on the `left` percentage */
+    transition: width 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; /* Smooth hover effects */
+    pointer-events: auto; /* Enable interaction with the divider itself */
+}
+
+/* Hover and dragging states for the divider */
+.split-divider:hover,
+.split-divider.dragging {
+    width: 8px; /* Wider on hover/drag */
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        var(--accent-color) 10%,
+        var(--accent-color) 90%,
+        transparent 100%
+    );
+    box-shadow: 0 0 20px rgba(0, 144, 99, 0.5); /* Subtle glow */
+}
+
+/* The circular handle in the middle of the divider */
+.divider-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+        -50%,
+        -50%
+    ); /* Centers the handle within the divider */
+    width: 24px;
+    height: 60px;
+    background: var(--accent-color);
+    border-radius: 12px; /* Rounded rectangle shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+/* Handle size increase on hover/drag */
+.split-divider:hover .divider-handle,
+.split-divider.dragging .divider-handle {
+    width: 28px;
+    height: 70px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* The three small dots within the handle */
+.handle-dots {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.handle-dots span {
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%; /* Make them circular */
+    opacity: 0.8;
+}
+
+.split-divider:hover .handle-dots span,
+.split-divider.dragging .handle-dots span {
+    opacity: 1; /* Dots become fully opaque on hover/drag */
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .split-divider {
+        width: 8px;
+    }
+    .split-divider:hover,
+    .split-divider.dragging {
+        width: 12px;
+    }
+    .divider-handle {
+        width: 28px;
+        height: 80px;
+    }
+    .split-divider:hover .divider-handle,
+    .split-divider.dragging .divider-handle {
+        width: 32px;
+        height: 90px;
+    }
+
+    /* Adjust font sizes for smaller screens if needed */
+    .minimal-content-panel h1,
+    .funky-content-panel h1 {
+        font-size: 3rem; /* Example: smaller font on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .minimal-content-panel h1,
+    .funky-content-panel h1 {
+        font-size: 2rem; /* Even smaller on very small screens */
+    }
+}
