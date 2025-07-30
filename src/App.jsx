@@ -2,10 +2,9 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import ExperienceBlissCTA from "./components/ExperienceBlissCTA";
 import Footer from "./components/Footer";
-import SplitScreenLanding from "./components/SplitScreenLanding";
 import ProductShowcase from "./pages/ProductShowcase";
 import ShopPage from "./pages/ShopPage";
-import SplitScreenComparison from "./pages/SplitScreenComparision";
+import SplitScreenComparison from "./pages/SplitScreenComparison";
 
 function App() {
     return (

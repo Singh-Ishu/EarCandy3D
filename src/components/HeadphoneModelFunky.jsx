@@ -1,48 +1,48 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber"; // Keep useFrame here
 import * as THREE from "three";
 
 export default function HeadphoneModelFunky() {
-    // Load the same 3D model for both versions
-    const { scene } = useGLTF("/models/headphone.glb");
-    const modelRef = useRef();
+    const { scene } = useGLTF("/models/headphone_combined.glb");
+    const [processedModel, setProcessedModel] = useState(null);
 
     useEffect(() => {
-        // Apply funky styling to the loaded model
-        const clonedScene = scene.clone();
-        clonedScene.traverse((child) => {
-            if (child.isMesh) {
-                child.material = child.material.clone();
-
-                const funkyColor = new THREE.Color(0xff00ff); // Vibrant Magenta
-                const funkyEmissive = new THREE.Color(0x00ffff); // Cyan glow
-
-                child.material.color = funkyColor;
-                child.material.emissive = funkyEmissive;
-                child.material.emissiveIntensity = 0.4; // Intensity of the glow
-                child.material.roughness = 0.2;
-                child.material.metalness = 0.8;
-                child.material.envMapIntensity = 1.5; // How much it reflects the environment
-                // You could add textures for patterns here
-                // child.material.map = new THREE.TextureLoader().load('/textures/funky_pattern.png');
-                child.material.needsUpdate = true;
-            }
-        });
-        modelRef.current = clonedScene;
+        if (scene) {
+            const clonedScene = scene.clone();
+            clonedScene.traverse((child) => {
+                if (child.isMesh) {
+                    child.material = child.material.clone();
+                    const funkyColor = new THREE.Color(0xff00ff);
+                    const funkyEmissive = new THREE.Color(0x00ffff);
+                    child.material.color = funkyColor;
+                    child.material.emissive = funkyEmissive;
+                    child.material.emissiveIntensity = 0.4;
+                    child.material.roughness = 0.2;
+                    child.material.metalness = 0.8;
+                    child.material.envMapIntensity = 1.5;
+                    child.material.needsUpdate = true;
+                }
+            });
+            setProcessedModel(clonedScene);
+        }
     }, [scene]);
 
+    // CALL useFrame UNCONDITIONALLY HERE, before any conditional returns
     useFrame(() => {
-        // Optional: Add a more dynamic animation to the funky model
-        // if (modelRef.current) {
-        //     modelRef.current.rotation.y += 0.003;
-        // }
+        if (processedModel) {
+            // Your optional animation logic
+            // processedModel.rotation.y += 0.003; // Example animation
+        }
     });
 
-    // Scale and position must be EXACTLY identical to HeadphoneModelMinimal
+    if (!processedModel) {
+        return null;
+    }
+
     return (
         <primitive
-            object={modelRef.current}
+            object={processedModel}
             scale={1.5}
             position={[0, -0.5, 0]}
         />

@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
 
-import HeadphoneModelMinimal from "./components/HeadphoneModelMinimal";
-import HeadphoneModelFunky from "./components/HeadphoneModelFunky";
-import MinimalContent from "./components/MinimalContent";
-import FunkyContent from "./components/FunkyContent";
+import HeadphoneModelMinimal from "../components/HeadphoneModelMinimal";
+import HeadphoneModelFunky from "../components/HeadphoneModelFunky";
+import MinimalContent from "../components/MinimalContent";
+import FunkyContent from "../components/FunkyContent";
 
 import "./SplitScreenComparison.css";
 
