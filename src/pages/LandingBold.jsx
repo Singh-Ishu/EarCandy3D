@@ -24,8 +24,6 @@ export default function LandingBold() {
                             enablePan={false}
                             maxPolarAngle={Math.PI / 2}
                             minPolarAngle={Math.PI / 2}
-                            autoRotate
-                            autoRotateSpeed={2}
                         />
                     </Canvas>
                 </div>
