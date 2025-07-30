@@ -1,7 +1,93 @@
 .Headphone-hero-bold {
-    background-color: green;
     height: 100vh;
     width: 100%;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+    position: relative;
+    width: 120%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(10%);
+}
+
+.hero-title {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 
+        3px 3px 0px #000,
+        -1px -1px 0px #000,  
+        1px -1px 0px #000,
+        -1px 1px 0px #000,
+        1px 1px 0px #000,
+        0 0 20px rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.1em;
+    z-index: 10;
+    user-select: none;
+    animation: pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    from { 
+        transform: translateX(-50%) scale(1);
+        text-shadow: 
+            3px 3px 0px #000,
+            -1px -1px 0px #000,  
+            1px -1px 0px #000,
+            -1px 1px 0px #000,
+            1px 1px 0px #000,
+            0 0 20px rgba(255, 255, 255, 0.5);
+    }
+    to { 
+        transform: translateX(-50%) scale(1.05);
+        text-shadow: 
+            3px 3px 0px #000,
+            -1px -1px 0px #000,  
+            1px -1px 0px #000,
+            -1px 1px 0px #000,
+            1px 1px 0px #000,
+            0 0 30px rgba(255, 255, 255, 0.8),
+            0 0 40px rgba(255, 107, 107, 0.6);
+    }
+}
+
+.canvas-container {
+    width: 100%;
+    height: 70%;
+    position: relative;
+    z-index: 5;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: clamp(3rem, 10vw, 6rem);
+        top: 20%;
+    }
+    
+    .canvas-container {
+        height: 60%;
+    }
 }
