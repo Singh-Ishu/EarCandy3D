@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
-import ShopPage from "../pages/ShopPage";
+import ShopPage from "./ShopPage";
 import "./ExperienceBlissCTA.css";
 
 const ExperienceBlissCTA = () => {
