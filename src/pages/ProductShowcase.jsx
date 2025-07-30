@@ -1,6 +1,6 @@
 import "./ProductShowcase.css";
-import VerticalProductCard from "../components/VerticalProductCard";
-import CarouselVisualizer from "../components/CarouselVisualizer";
+import VerticalProductCard from "../components/shared/VerticalProductCard/VerticalProductCard";
+import CarouselVisualizer from "../components/shared/CarouselVisualizer/CarouselVisualizer";
 
 export default function ProductShowcase() {
     const products = [
@@ -35,7 +35,7 @@ export default function ProductShowcase() {
         ...products,
         ...products,
         ...products,
-        ...products
+        ...products,
     ];
     return (
         <div className="product-showcase">

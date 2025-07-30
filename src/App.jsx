@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import ExperienceBlissCTA from "./components/ExperienceBlissCTA";
-import Footer from "./components/Footer";
+import ExperienceBlissCTA from "./pages/ExperienceBlissCTA";
+import Footer from "./components/layout/Footer/Footer";
 import ProductShowcase from "./pages/ProductShowcase";
 import ShopPage from "./pages/ShopPage";
 import SplitScreenComparison from "./pages/SplitScreenComparison";

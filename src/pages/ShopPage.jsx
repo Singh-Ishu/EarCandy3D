@@ -1,29 +1,31 @@
 import { useState, useEffect } from "react";
 import "./ShopPage.css";
-import ShopSidebar from "../components/ShopSidebar";
-import ShopSearch from "../components/ShopSearch";
-import ResponsiveProductCard from "../components/ResponsiveProductCard";
+import ShopSidebar from "../components/shared/ShopSidebar/ShopSidebar";
+import ShopSearch from "../components/shared/ShopSearch/ShopSearch";
+import ResponsiveProductCard from "../components/shared/ResponsiveProductCard/ResponsiveProductCard";
 
 const allProducts = [
     {
         id: 1,
         name: "Audiomaster Alpha",
         image: "/template_img.webp",
-        description: "High-quality sound with a sleek design perfect for audiophiles.",
+        description:
+            "High-quality sound with a sleek design perfect for audiophiles.",
         price: 129.99,
         category: "headphones",
         series: "XMZ",
-        rating: 4.5
+        rating: 4.5,
     },
     {
         id: 2,
         name: "BassBeast X",
         image: "/template_img.webp",
-        description: "Deep bass and crystal clarity for an immersive experience.",
+        description:
+            "Deep bass and crystal clarity for an immersive experience.",
         price: 159.99,
         category: "headphones",
         series: "Audiphilic",
-        rating: 4.8
+        rating: 4.8,
     },
     {
         id: 3,
@@ -33,7 +35,7 @@ const allProducts = [
         price: 199.99,
         category: "speakers",
         series: "XMZ",
-        rating: 4.2
+        rating: 4.2,
     },
     {
         id: 4,
@@ -43,7 +45,7 @@ const allProducts = [
         price: 89.99,
         category: "accessories",
         series: "Oompa Loompa",
-        rating: 3.9
+        rating: 3.9,
     },
     {
         id: 5,
@@ -53,27 +55,29 @@ const allProducts = [
         price: 299.99,
         category: "soundbars",
         series: "Audiphilic",
-        rating: 4.6
+        rating: 4.6,
     },
     {
         id: 6,
         name: "Luxury Audio Master",
         image: "/template_img.webp",
-        description: "High-end luxury audio system for the discerning listener.",
+        description:
+            "High-end luxury audio system for the discerning listener.",
         price: 799.99,
         category: "luxury",
         series: "XMZ",
-        rating: 4.9
+        rating: 4.9,
     },
     {
         id: 7,
         name: "Studio Monitor Pro",
         image: "/template_img.webp",
-        description: "Professional studio monitors for accurate sound reproduction.",
+        description:
+            "Professional studio monitors for accurate sound reproduction.",
         price: 449.99,
         category: "speakers",
         series: "Audiphilic",
-        rating: 4.7
+        rating: 4.7,
     },
     {
         id: 8,
@@ -83,8 +87,8 @@ const allProducts = [
         price: 179.99,
         category: "headphones",
         series: "Oompa Loompa",
-        rating: 4.3
-    }
+        rating: 4.3,
+    },
 ];
 
 function ShopPage() {
@@ -95,7 +99,7 @@ function ShopPage() {
         categories: [],
         series: [],
         rating: "",
-        sortBy: "featured"
+        sortBy: "featured",
     });
 
     useEffect(() => {
@@ -107,27 +111,34 @@ function ShopPage() {
 
         // Apply search filter
         if (searchTerm) {
-            filtered = filtered.filter(product =>
-                product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                product.description.toLowerCase().includes(searchTerm.toLowerCase())
+            filtered = filtered.filter(
+                (product) =>
+                    product.name
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase()) ||
+                    product.description
+                        .toLowerCase()
+                        .includes(searchTerm.toLowerCase())
             );
         }
 
         // Apply price range filter
-        filtered = filtered.filter(product =>
-            product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1]
+        filtered = filtered.filter(
+            (product) =>
+                product.price >= filters.priceRange[0] &&
+                product.price <= filters.priceRange[1]
         );
 
         // Apply category filter
         if (filters.categories.length > 0) {
-            filtered = filtered.filter(product =>
+            filtered = filtered.filter((product) =>
                 filters.categories.includes(product.category)
             );
         }
 
         // Apply series filter
         if (filters.series.length > 0) {
-            filtered = filtered.filter(product =>
+            filtered = filtered.filter((product) =>
                 filters.series.includes(product.series)
             );
         }
@@ -135,7 +146,9 @@ function ShopPage() {
         // Apply rating filter
         if (filters.rating) {
             const minRating = parseInt(filters.rating);
-            filtered = filtered.filter(product => product.rating >= minRating);
+            filtered = filtered.filter(
+                (product) => product.rating >= minRating
+            );
         }
 
         // Apply sorting
@@ -182,18 +195,24 @@ function ShopPage() {
                     <ShopSearch onSearch={handleSearch} />
                     <div className="products-info">
                         <span className="products-count">
-                            {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''} found
+                            {filteredProducts.length} product
+                            {filteredProducts.length !== 1 ? "s" : ""} found
                         </span>
                     </div>
                     <div className="products-grid">
                         {filteredProducts.length > 0 ? (
                             filteredProducts.map((product) => (
-                                <ResponsiveProductCard key={product.id} product={product} />
+                                <ResponsiveProductCard
+                                    key={product.id}
+                                    product={product}
+                                />
                             ))
                         ) : (
                             <div className="no-products">
                                 <p>No products found matching your criteria.</p>
-                                <p>Try adjusting your filters or search terms.</p>
+                                <p>
+                                    Try adjusting your filters or search terms.
+                                </p>
                             </div>
                         )}
                     </div>

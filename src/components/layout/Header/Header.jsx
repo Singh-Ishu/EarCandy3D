@@ -5,7 +5,7 @@ The profile icon links to the profile page
 The cart icon links to the cart page*/
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import HamburgerMenu from "./HamburgerMenu";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import "./Header.css";
 
 export default function Header() {
@@ -45,7 +45,10 @@ export default function Header() {
                         >
                             Soundbars
                         </Link>
-                        <Link to="/shop?category=luxury" className="header-option">
+                        <Link
+                            to="/shop?category=luxury"
+                            className="header-option"
+                        >
                             Luxury Audio
                         </Link>
                         <Link
@@ -68,7 +71,9 @@ export default function Header() {
                     </Link>
                 </div>
                 <div id="hamburger-menu" onClick={toggleMenu}>
-                    <i className="material-icons">{menuOpen ? 'close' : 'menu'}</i>
+                    <i className="material-icons">
+                        {menuOpen ? "close" : "menu"}
+                    </i>
                 </div>
             </div>
             {menuOpen && (
