@@ -12,7 +12,6 @@ export default function MinimalContent() {
                 <Canvas>
                     <ambientLight intensity={0.8} />
                     <OrbitControls enableZoom={false} />
-                    <Environment preset="forest" background />
                     <HeadphoneModelMinimal />
                 </Canvas>
             </div>

@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 .minimal-content-panel {
     height: 100%;
     width: 100%;
-    /* Your desired background for the minimal side */
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     position: relative; /* Enable absolute positioning for child elements */
     overflow: hidden; /* Ensures text is clipped if panel is too small */
@@ -12,8 +13,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 5rem; /* Adjust font size as needed */
-    color: #2c3e50;
+    font-size: 15rem;
+    font-family: Montserrat;
+    color: black;
+    /* color: #2c3e50; */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: 0.1em;
     user-select: none;
