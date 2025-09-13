@@ -1,30 +1,30 @@
 import "./ProductShowcase.css";
 import VerticalProductCard from "../components/shared/VerticalProductCard/VerticalProductCard";
 import CarouselVisualizer from "../components/shared/CarouselVisualizer/CarouselVisualizer";
-
+import templateImg from "../assets/template_img.webp";
 export default function ProductShowcase() {
     const products = [
         {
             name: "Audiomaster Alpha",
-            image: "/template_img.webp",
+            image: templateImg,
             description: "High-quality sound with a sleek design.",
             price: 129.99,
         },
         {
             name: "BassBeast X",
-            image: "/template_img.webp",
+            image: templateImg,
             description: "Deep bass and crystal clarity.",
             price: 159.99,
         },
         {
             name: "CrystalSound Pro",
-            image: "/template_img.webp",
+            image: templateImg,
             description: "True wireless experience.",
             price: 199.99,
         },
         {
             name: "EchoBuds 2",
-            image: "/template_img.webp",
+            image: templateImg,
             description: "Alexa built-in, all-day battery.",
             price: 89.99,
         },
