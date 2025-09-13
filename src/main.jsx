@@ -7,7 +7,7 @@ import Header from "./components/layout/Header/Header";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename="/EarCandy3D">
             <Header />
             <App />
         </BrowserRouter>
