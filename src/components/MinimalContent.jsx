@@ -10,7 +10,7 @@ export default function MinimalContent() {
             <h1>MINIMAL</h1>
             <div className="headphone-canvas">
                 <Canvas>
-                    <ambientLight intensity={0.8} />
+                    <ambientLight intensity={1} />
                     <OrbitControls enableZoom={false} />
                     <HeadphoneModelMinimal />
                 </Canvas>

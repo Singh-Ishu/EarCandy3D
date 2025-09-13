@@ -27,8 +27,8 @@ export default function HeadphoneModelMinimal() {
     // CALL useFrame UNCONDITIONALLY HERE, before any conditional returns
     useFrame(() => {
         // Only attempt animation if the model is actually loaded and processed
-        if (processedModel) {
-        }
+        // if (processedModel) {
+        // }
     });
 
     // Now, conditionally render the primitive AFTER all hooks have been called
