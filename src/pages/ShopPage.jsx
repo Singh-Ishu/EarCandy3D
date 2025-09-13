@@ -3,7 +3,7 @@ import "./ShopPage.css";
 import ShopSidebar from "../components/shared/ShopSidebar/ShopSidebar";
 import ShopSearch from "../components/shared/ShopSearch/ShopSearch";
 import ResponsiveProductCard from "../components/shared/ResponsiveProductCard/ResponsiveProductCard";
-import templateImg from "../../public/template_img.webp";
+import templateImg from "/template_img.webp";
 
 const allProducts = [
     {
