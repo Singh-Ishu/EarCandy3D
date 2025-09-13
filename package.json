@@ -5,11 +5,8 @@
     "type": "module",
     "homepage": "https://Singh-Ishu.github.com/EarCandy3D",
     "scripts": {
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
         "dev": "vite",
         "build": "vite build",
-        "test": "echo \"Error: no test specified\" && exit 0",
         "lint": "eslint .",
         "preview": "vite preview"
     },
