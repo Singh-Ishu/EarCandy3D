@@ -3,12 +3,13 @@ import "./ShopPage.css";
 import ShopSidebar from "../components/shared/ShopSidebar/ShopSidebar";
 import ShopSearch from "../components/shared/ShopSearch/ShopSearch";
 import ResponsiveProductCard from "../components/shared/ResponsiveProductCard/ResponsiveProductCard";
+import templateImg from "../assets/template_img.webp";
 
 const allProducts = [
     {
         id: 1,
         name: "Audiomaster Alpha",
-        image: "/template_img.webp",
+        image: templateImg,
         description:
             "High-quality sound with a sleek design perfect for audiophiles.",
         price: 129.99,
@@ -19,7 +20,7 @@ const allProducts = [
     {
         id: 2,
         name: "BassBeast X",
-        image: "/template_img.webp",
+        image: templateImg,
         description:
             "Deep bass and crystal clarity for an immersive experience.",
         price: 159.99,
@@ -30,7 +31,7 @@ const allProducts = [
     {
         id: 3,
         name: "CrystalSound Pro",
-        image: "/template_img.webp",
+        image: templateImg,
         description: "True wireless experience with premium sound quality.",
         price: 199.99,
         category: "speakers",
@@ -40,7 +41,7 @@ const allProducts = [
     {
         id: 4,
         name: "EchoBuds 2",
-        image: "/template_img.webp",
+        image: templateImg,
         description: "Alexa built-in, all-day battery life for convenience.",
         price: 89.99,
         category: "accessories",
@@ -50,7 +51,7 @@ const allProducts = [
     {
         id: 5,
         name: "SoundWave Elite",
-        image: "/template_img.webp",
+        image: templateImg,
         description: "Premium soundbar with surround sound technology.",
         price: 299.99,
         category: "soundbars",
@@ -60,7 +61,7 @@ const allProducts = [
     {
         id: 6,
         name: "Luxury Audio Master",
-        image: "/template_img.webp",
+        image: templateImg,
         description:
             "High-end luxury audio system for the discerning listener.",
         price: 799.99,
@@ -71,7 +72,7 @@ const allProducts = [
     {
         id: 7,
         name: "Studio Monitor Pro",
-        image: "/template_img.webp",
+        image: templateImg,
         description:
             "Professional studio monitors for accurate sound reproduction.",
         price: 449.99,
@@ -82,7 +83,7 @@ const allProducts = [
     {
         id: 8,
         name: "Wireless Freedom",
-        image: "/template_img.webp",
+        image: templateImg,
         description: "Complete wireless freedom with exceptional battery life.",
         price: 179.99,
         category: "headphones",

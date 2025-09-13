@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import headphoneModel from "../../public/models/headphone_funky.glb";
 
 export default function HeadphoneModelFunky() {
-    const { scene } = useGLTF("/models/headphone_funky.glb");
+    const { scene } = useGLTF(headphoneModel);
     const [processedModel, setProcessedModel] = useState(null);
 
     useEffect(() => {
