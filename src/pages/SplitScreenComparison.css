@@ -11,48 +11,7 @@
     cursor: default; /* Default cursor for the background */
 }
 
-/* --- Layer 1: 3D Models --- */
-/* Container for both headphone Canvas wrappers, acts as a full-screen base */
-.model-layer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* Lowest visual layer to appear behind text/backgrounds */
-}
-
-/* Wrapper for each individual Canvas. This is what gets clipped. */
-.model-canvas-wrapper {
-    position: absolute; /* Allows overlaying and precise positioning */
-    top: 0;
-    height: 100%; /* Take full height of .model-layer */
-    overflow: hidden; /* CRITICAL: This clips the part of the Canvas that goes outside this wrapper */
-}
-
-/* Ensure the Canvas element itself always renders at the full viewport size */
-/* This is crucial for the "overlay" effect where the model appears static */
-.model-canvas-wrapper canvas {
-    position: absolute;
-    top: 0;
-    left: 0; /* Align the Canvas to the viewport's left edge */
-    width: 100vw !important; /* Forces Canvas to render across the entire viewport width */
-    height: 100vh !important; /* Forces Canvas to render across the entire viewport height */
-    display: block; /* Removes default inline-block spacing */
-}
-
-/* The minimal headphone always spans the full width underneath */
-.minimal-headphone-wrapper {
-    width: 100%;
-    left: 0;
-}
-
-/* The funky headphone wrapper's width and left are controlled by JS */
-.funky-headphone-wrapper {
-    /* Styles will be applied via inline style from React */
-}
-
-/* --- Layer 2: Content (Backgrounds and Text) --- */
+/* --- Content Pages with Headphone Models --- */
 /* Container for both content panels (minimal and funky) */
 .content-layer {
     position: absolute;
@@ -60,26 +19,26 @@
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex; /* Uses flexbox to lay out the content panels side-by-side */
-    z-index: 2; /* Above the models, below the divider */
+    z-index: 1; /* Below the divider */
     pointer-events: none; /* Allows mouse events to pass through to the slider divider */
 }
 
 /* Individual content panel (minimal or funky) */
 .content-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    position: relative; /* Allows content like h1 to be positioned relatively within */
-    overflow: hidden; /* Clips the background and text as the panel's width changes */
     pointer-events: auto; /* Re-enable pointer events for specific content (e.g., text selection) */
 }
 
-.left-content-panel {
-    /* Width is set via inline style in JS */
+.minimal-page {
+    z-index: 1; /* Behind funky page */
 }
 
-.right-content-panel {
-    /* Width is set via inline style in JS, flex-grow can also be used as a fallback/helper */
-    flex-grow: 1; /* Takes up remaining space if no explicit width */
+.funky-page {
+    z-index: 2; /* On top of minimal page */
 }
 
 /* --- Layer 3: The Slider Divider --- */

@@ -1,9 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
 
-import HeadphoneModelMinimal from "../components/HeadphoneModelMinimal";
-import HeadphoneModelFunky from "../components/HeadphoneModelFunky";
 import MinimalContent from "../components/MinimalContent";
 import FunkyContent from "../components/FunkyContent";
 
@@ -77,53 +73,24 @@ export default function SplitScreenComparison() {
 
     return (
         <div className="split-screen-container" ref={containerRef}>
-            {/* Layer 1: 3D Models (rendered fullscreen, clipped by wrappers) */}
-            <div className="model-layer">
-                {/* Minimal Headphone: always covers the full width underneath the funky one */}
-                <div className="model-canvas-wrapper minimal-headphone-wrapper">
-                    <Canvas>
-                        <ambientLight intensity={0.8} />{" "}
-                        {/* General scene lighting */}
-                        <OrbitControls enableZoom={false} />{" "}
-                        {/* Disable zoom to keep model size consistent */}
-                        <Environment preset="forest" background />{" "}
-                        {/* Environmental lighting and background */}
-                        <HeadphoneModelMinimal />
-                    </Canvas>
-                </div>
-
-                {/* Funky Headphone: its wrapper's width and position change to reveal/hide it */}
-                <div
-                    className="model-canvas-wrapper funky-headphone-wrapper"
-                    style={{
-                        width: `${100 - splitPosition}%`,
-                        left: `${splitPosition}%`,
-                    }}
-                >
-                    <Canvas>
-                        <ambientLight intensity={0.8} />
-                        <OrbitControls enableZoom={false} />
-                        <Environment preset="studio" background />{" "}
-                        {/* Different environment for funky look */}
-                        <HeadphoneModelFunky />
-                    </Canvas>
-                </div>
-            </div>
-
-            {/* Layer 2: Content (Backgrounds and Text) */}
+            {/* Content Pages with Headphone Models */}
             <div className="content-layer">
-                {/* Left Content Panel (Minimal) */}
+                {/* Minimal Page - Full size, clipped to show left side */}
                 <div
-                    className="content-panel left-content-panel"
-                    style={{ width: `${splitPosition}%` }}
+                    className="content-panel minimal-page"
+                    style={{
+                        clipPath: `inset(0 ${100 - splitPosition}% 0 0)`
+                    }}
                 >
                     <MinimalContent />
                 </div>
 
-                {/* Right Content Panel (Funky) */}
+                {/* Funky Page - Full size, clipped to show right side */}
                 <div
-                    className="content-panel right-content-panel"
-                    style={{ width: `${100 - splitPosition}%` }}
+                    className="content-panel funky-page"
+                    style={{
+                        clipPath: `inset(0 0 0 ${splitPosition}%)`
+                    }}
                 >
                     <FunkyContent />
                 </div>
