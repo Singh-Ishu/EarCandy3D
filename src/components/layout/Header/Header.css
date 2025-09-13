@@ -10,7 +10,7 @@
     min-width: 100vw;
     border-radius: 0;
     background-color: var(--header-color);
-    z-index: 1000;
+    z-index: 2000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
