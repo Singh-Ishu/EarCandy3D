@@ -28,21 +28,20 @@ export default function HeadphoneModelMinimal() {
     useFrame(() => {
         // Only attempt animation if the model is actually loaded and processed
         if (processedModel) {
-            // Your optional animation logic
-            // processedModel.rotation.y += 0.001; // Example animation
         }
     });
 
     // Now, conditionally render the primitive AFTER all hooks have been called
     if (!processedModel) {
-        return null; // Or a loading spinner
+        return null;
     }
 
     return (
         <primitive
             object={processedModel}
             scale={1.5}
-            position={[0, -0.5, 0]}
+            position={[0, 0, -1.5]}
+            rotation={[0, 15, 0]}
         />
     );
 }

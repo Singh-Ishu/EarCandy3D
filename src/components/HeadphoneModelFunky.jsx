@@ -31,8 +31,6 @@ export default function HeadphoneModelFunky() {
     // CALL useFrame UNCONDITIONALLY HERE, before any conditional returns
     useFrame(() => {
         if (processedModel) {
-            // Your optional animation logic
-            // processedModel.rotation.y += 0.003; // Example animation
         }
     });
 
@@ -44,7 +42,8 @@ export default function HeadphoneModelFunky() {
         <primitive
             object={processedModel}
             scale={1.5}
-            position={[0, -0.5, 0]}
+            position={[0, 0, -1.5]}
+            rotation={[0, 15, 0]}
         />
     );
 }
