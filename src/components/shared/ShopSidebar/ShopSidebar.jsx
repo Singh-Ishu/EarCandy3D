@@ -15,7 +15,13 @@ const ShopSidebar = ({ onFiltersChange }) => {
     // Initialize filters from URL params
     useEffect(() => {
         const category = searchParams.get('category');
-        const newFilters = { ...filters };
+        const newFilters = {
+            priceRange: [0, 1000],
+            categories: [],
+            series: [],
+            rating: "",
+            sortBy: "featured"
+        };
         
         if (category) {
             newFilters.categories = [category];
@@ -23,7 +29,7 @@ const ShopSidebar = ({ onFiltersChange }) => {
         
         setFilters(newFilters);
         onFiltersChange?.(newFilters);
-    }, []);
+    }, [searchParams]);
 
     const updateFilters = (newFilters) => {
         setFilters(newFilters);
